@@ -34,3 +34,11 @@ def game_logic(list_lenght:int, scope_start:int, scope_end:int):
                 break
         print("you guessed it!")
 
+
+def run_application():
+    game_logic(10, 1, 99)
+    game_logic(10, 1, 49)
+
+if __name__ == "__main__":
+    run_application()
+
