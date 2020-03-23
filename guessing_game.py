@@ -17,14 +17,19 @@ def handle_number_input_comparison(user_number:int, number_to_compare:int):
     else:
         return False
 
+
+def handle_user_input(scope_start:int, scope_end:int):
+    return int(input(f"Enter an integer from {scope_start} to {scope_end}: "))
+
+
 def game_logic(list_lenght:int, scope_start:int, scope_end:int):
     random_numbers, scope_start, scope_end = create_random_number_list(list_lenght, scope_start, scope_end)
     for index in range(len(random_numbers)):
-        user_number = int(input(f"Enter an integer from {scope_start} to {scope_end}: "))
+        user_number = handle_user_input(scope_start, scope_end)
         while random_numbers[index] != user_number:
             number_to_compare = random_numbers[index]
             comparison_result = handle_number_input_comparison(user_number, number_to_compare)
-            user_number = int(input(f"Enter an integer from {scope_start} to {scope_end}: "))
+            user_number = handle_user_input(scope_start, scope_end)
             if comparison_result == False:
                 break
         print("you guessed it!")
